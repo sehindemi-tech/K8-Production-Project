@@ -1,0 +1,17 @@
+server:
+  extraArgs:
+  - --insecure
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      nginx.org/hosts: "false"
+      cert-manager.io/cluster-issuer: issuer
+    hosts:
+    - argocd.lab.demitech.co.uk
+    tls:
+    - secretName: argocd-ingress-tls
+      hosts:
+      - argocd.lab.demitech.co.uk

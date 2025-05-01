@@ -1,0 +1,13 @@
+provider: aws 
+
+env:
+  - name: AWS_DEFAULT_REGION
+    value: eu-west-2
+
+serviceAccount:
+  name: external-dns
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::982083153132:role/external-dns"
+
+domainFilters:
+  - lab.demitech.co.uk

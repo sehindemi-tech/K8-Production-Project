@@ -1,0 +1,36 @@
+# ingressShim:
+#   defaultACMEChallenege: dns01
+#   defaultACMEDNS01ChallengeProvider: route53
+
+# extraArgs:
+# - --dns01-recursive-nameservers="8.8.8.8:53"
+# - --dns01-recursive-nameservers-only
+
+# serviceAccount:
+#   annotations:
+#     eks.amazonaws.com/role-arn: "arn:aws:iam::982083153132:role/cert-manager"
+
+# ingressShim:
+#   defaultIssuerName: "letsencrypt"
+#   defaultIssuerKind: "ClusterIssuer"
+#   defaultACMEChallengeType: dns01
+
+# extraArgs:
+#   - --dns01-recursive-nameservers="8.8.8.8:53"
+#   - --dns01-recursive-nameservers-only
+
+# serviceAccount:
+#   annotations:
+#     eks.amazonaws.com/role-arn: "arn:aws:iam::982083153132:role/cert-manager"
+
+ingressShim:
+  defaultIssuerName: "letsencrypt"
+  defaultIssuerKind: "ClusterIssuer"
+
+extraArgs:
+  - --dns01-recursive-nameservers="8.8.8.8:53"
+  - --dns01-recursive-nameservers-only
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::982083153132:role/cert-manager"
