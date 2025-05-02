@@ -1,21 +1,22 @@
-apiVersion: argoproj.io/vialpha1
-kind: Application I
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: apps
-  namespace: argocd
+  namespace: argo-cd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/sehindemi-tech/K8-Production-Project.git'
     targetRevision: HEAD
-    path: app-hub
+    path: apps
 
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: apps
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-  syncOptions:
-  - CreateNamespace=true
+    syncOptions:
+    - CreateNamespace=true
